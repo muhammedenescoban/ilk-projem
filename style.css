@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-/* 1. CONTAINER: Arka Plan ve Ana Düzen */
+
 .container{
     background: url(11zon_resized.jpeg);
     height: 100vh;
@@ -14,47 +14,47 @@
     flex-direction: column;
     justify-content: flex-start; 
     
-    /* HATA DÜZELTİLDİ: align-items: center; kuralı kaldırıldı. */
+   
 }
 
-/* 2. NAVİGASYON ÇUBUĞU: header.navbar olarak güncellendi */
+
 header.navbar{
-    width: 100%; /* Tam genişlik */
+    width: 100%; 
     height: 80px;
-    background: rgba(0, 0, 0, 0.7); /* Daha koyu, daha şık şeffaf siyah */
+    background: rgba(0, 0, 0, 0.7); 
     
     display: flex;
-    align-items: center; /* Öğeleri dikeyde ortala */
-    justify-content: space-between; /* Logo sola, menü sağa kayar */
+    align-items: center; 
+    justify-content: space-between; 
 }
 
 .navbar .logo{
     color: #ffffff;
     font-size: 24px;
     font-family: sans-serif;    
-    margin-left: 30px; /* Soldan boşluk artırıldı */
-    font-weight: bold; /* Logo vurgulandı */
+    margin-left: 30px; 
+    font-weight: bold; 
 }
 
-/* 3. NAVİGASYON LİSTESİ */
+
 .navbar nav ul{
     display: flex;
     list-style: none;
-    margin-right: 30px; /* Sağdan boşluk artırıldı */
+    margin-right: 30px; 
     padding-left: 0;
 }
 
 .navbar nav ul li{
-    margin: 0; /* Boşluklar a etiketine taşındı */
+    margin: 0; 
 }
 
 .navbar nav ul li a{
     display: block;
     color: #ffffff;
     text-decoration: none;
-    font-size: 16px; /* Font boyutu biraz küçültüldü */
+    font-size: 16px; 
     font-weight: 500;
-    padding: 29.5px 18px; /* Tıklanabilir alan ve dikey ortalama ayarlandı (80 - 16) / 2 = 32 */
+    padding: 29.5px 18px; 
     font-family: sans-serif;
     transition: color 0.3s;
 }
@@ -70,17 +70,17 @@ header.navbar{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Yatayda ortalamak için ekledik */
+    align-items: center; 
     text-align: center;
     color: #ffffff;
     padding: 20px;
 }
 
 .content h1{
-    font-size: 56px; /* Başlık büyütüldü */
+    font-size: 56px; 
     margin-bottom: 20px;
     font-family: sans-serif;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); /* Gölge artırıldı */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); 
 }
 
 .content p{
