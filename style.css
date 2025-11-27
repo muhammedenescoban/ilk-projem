@@ -4,40 +4,108 @@
     box-sizing: border-box;
 }
 
+/* 1. CONTAINER: Arka Plan ve Ana Düzen */
 .container{
     background: url(11zon_resized.jpeg);
     height: 100vh;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    
+    /* HATA DÜZELTİLDİ: align-items: center; kuralı kaldırıldı. */
 }
 
-.container .navbar{
-    width: 100%;
+/* 2. NAVİGASYON ÇUBUĞU: header.navbar olarak güncellendi */
+header.navbar{
+    width: 100%; /* Tam genişlik */
     height: 80px;
-    background: rgba(22,112,214,0.4);
+    background: rgba(0, 0, 0, 0.7); /* Daha koyu, daha şık şeffaf siyah */
+    
+    display: flex;
+    align-items: center; /* Öğeleri dikeyde ortala */
+    justify-content: space-between; /* Logo sola, menü sağa kayar */
 }
 
-.navbar ul{
-    float: right;
-    margin-right: 20px;
+.navbar .logo{
+    color: #ffffff;
+    font-size: 24px;
+    font-family: sans-serif;    
+    margin-left: 30px; /* Soldan boşluk artırıldı */
+    font-weight: bold; /* Logo vurgulandı */
+}
+
+/* 3. NAVİGASYON LİSTESİ */
+.navbar nav ul{
+    display: flex;
+    list-style: none;
+    margin-right: 30px; /* Sağdan boşluk artırıldı */
     padding-left: 0;
 }
 
-.navbar ul li{
-    list-style: none;
-    float: left;
-    line-height: 80px;
-    margin: 0 10px;
+.navbar nav ul li{
+    margin: 0; /* Boşluklar a etiketine taşındı */
 }
 
-.navbar ul li a{
+.navbar nav ul li a{
     display: block;
-color: #ffffff;
-text-decoration: none;
-font-size: 17px;
-padding: 31.5px 15px;
-font-family: sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px; /* Font boyutu biraz küçültüldü */
+    font-weight: 500;
+    padding: 29.5px 18px; /* Tıklanabilir alan ve dikey ortalama ayarlandı (80 - 16) / 2 = 32 */
+    font-family: sans-serif;
+    transition: color 0.3s;
 }
 
-.navbar ul li a:hover{
+.navbar nav ul li a:hover{
     color: #ffc107;
+}
+
+/* 4. ANA İÇERİK STİLLERİ */
+.content{
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Yatayda ortalamak için ekledik */
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.content h1{
+    font-size: 56px; /* Başlık büyütüldü */
+    margin-bottom: 20px;
+    font-family: sans-serif;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); /* Gölge artırıldı */
+}
+
+.content p{
+    font-size: 22px;
+    margin-bottom: 40px;
+    font-family: sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+
+
+.content .button-link{ 
+    padding: 14px 30px; 
+    font-size: 19px;
+    border: 2px solid #ffc107;
+    background: transparent;
+    color:#ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;      
+    display: inline-block;      
+    text-align: center;
+}
+
+.content .button-link:hover{
+    background: #ffc107;
+    color: #000000;
 }
