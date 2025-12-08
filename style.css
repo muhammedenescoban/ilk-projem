@@ -136,3 +136,143 @@ body{
     margin-bottom: 25px;
 }
 
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.6); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 420px; 
+    position: relative;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #ffc107;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.auth-form {
+    transition: opacity 0.3s, max-height 0.3s;
+    overflow: hidden;
+}
+
+.auth-form.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.auth-form.active {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #555;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #ffc107; 
+    outline: none;
+    box-shadow: 0 0 4px rgba(255, 193, 7, 0.4);
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #000000;
+    background-color: #ffc107; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 15px;
+}
+
+.submit-button:hover {
+    background-color: #e0a800; 
+    transform: translateY(-1px);
+}
+
+/* Form Değiştirme Linki Stili */
+.switch-form {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.switch-form a {
+    color: #ffc107;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.switch-form a:hover {
+    color: #e0a800;
+    text-decoration: underline;
+}

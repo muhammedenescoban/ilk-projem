@@ -13,14 +13,17 @@
             
             <div class="logo">Sağlık ve Spor Sitemize Hoş Geldiniz</div>
             
-            <nav>
+               <nav>
                 <ul>
-                    <li><a href="#">Anasayfa</a></li>
-                    <li><a href="#">Hakkimizda</a></li>
-                    <li><a href="#">Beslenme ve Diyet Planlari</a></li>
-                    <li><a href="#">Haftalik Plan</a></li>
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">Beslenme ve Diyet Planları</a></li>
+                    <li><a href="#">Haftalık Plan</a></li>
                     <li><a href="#">Egzersiz Önerileri</a></li>
+                    <li><a href="login.html">Giriş Yap</a></li> 
+                    <li><a href="register.html">Kaydol</a></li> 
                 </ul>
+            </nav>
             </nav>
         </header>
 
@@ -32,6 +35,93 @@
            
         </div>
     </div>
+
+    <div class="form-container">
+        <h2>Giriş Yap</h2>
+        <form action="#" method="POST">
+            <div class="input-group">
+                <label for="login-email">E-posta</label>
+                <input type="email" id="login-email" name="email" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="login-password">Şifre</label>
+                <input type="password" id="login-password" name="password" required>
+            </div>
+            
+            <button type="submit" class="submit-button">Giriş Yap</button>
+            
+            <p class="switch-form">Hesabın yok mu? <a href="register.html">Hemen Kaydol</a></p>
+
+        <h2>Kaydol</h2>
+        <form action="#" method="POST">
+            <div class="input-group">
+                <label for="reg-name">Ad Soyad</label>
+                <input type="text" id="reg-name" name="name" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="reg-email">E-posta</label>
+                <input type="email" id="reg-email" name="email" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="reg-password">Şifre</label>
+                <input type="password" id="reg-password" name="password" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="reg-password-repeat">Şifre Tekrarı</label>
+                <input type="password" id="reg-password-repeat" name="password_repeat" required>
+            </div>
+            
+            <button type="submit" class="submit-button">Hesap Oluştur</button>
+            
+            <p class="switch-form">Zaten bir hesabın var mı? <a href="login.html">Giriş Yap</a></p>
+        </form>
+    </div>
+
+    <script>
+    const modal = document.getElementById('authModal');
+    const btn = document.querySelector('.button-link');
+    const span = document.getElementsByClassName('close-button')[0];
+
+
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    
+
+    btn.onclick = function(e) {
+        e.preventDefault(); 
+        modal.style.display = 'flex';
+        switchForm('login'); 
+    }
+
+    span.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+    
+    function switchForm(formType) {
+        if (formType === 'login') {
+            loginForm.classList.add('active');
+            loginForm.classList.remove('hidden');
+            registerForm.classList.add('hidden');
+            registerForm.classList.remove('active');
+        } else if (formType === 'register') {
+            registerForm.classList.add('active');
+            registerForm.classList.remove('hidden');
+            loginForm.classList.add('hidden');
+            loginForm.classList.remove('active');
+        }
+    }
+</script>
 
 </body>
 </html>
