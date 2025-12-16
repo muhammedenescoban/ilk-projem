@@ -3,125 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sağlık ve Spor Sitemize Hoş Geldiniz.</title>
-    <link rel="stylesheet" href="style.css"> 
+    <title>Sağlık ve Spor Yaşam Sitesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {  
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; 
+        }
+
+        header.navbar {
+            width: 100%; 
+            height: 80px;
+            background: rgba(0, 0, 0, 0.7); 
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;             
+            opacity: 0;
+            animation: fadeInDown 0.8s ease-out 0.2s forwards;
+        }
+
+        .navbar .logo {
+            color: #ffffff;
+            font-size: 24px;
+            font-family: 'Poppins', sans-serif;
+            margin-left: 30px; 
+            font-weight: 700;
+        }
+
+        .navbar nav ul {
+            display: flex;
+            list-style: none;
+            margin-right: 30px; 
+            padding-left: 0;  
+        }
+
+        .navbar nav ul li {
+            margin: 0; 
+        }
+
+        .navbar nav ul li a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px; 
+            font-weight: 500;
+            padding: 29.5px 18px;  
+            font-family: 'Poppins', sans-serif;
+            transition: color 0.3s;
+        }
+
+        .navbar nav ul li a:hover {
+            color: #ffc107;  
+        }
+
+        .content {
+            width: 100%;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+            text-align: center;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .content h1 {
+            font-size: 56px; 
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); 
+            font-weight: 700;           
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+        }
+
+        .content p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            font-weight: 400;
+            
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1.2s forwards;  
+        }
+
+        .content .button-link { 
+            padding: 14px 30px; 
+            font-size: 19px;
+            border: 2px solid #ffc107;
+            background: transparent;
+            color: #ffffff;
+            cursor: pointer;
+            transition: 0.3s;  
+            text-decoration: none;      
+            display: inline-block;      
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1.6s forwards;
+        }
+
+        .content .button-link:hover {
+            background: #ffc107;
+            color: #000000;  
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;  
+            min-height: 100vh;
+            margin: 0;
+            scroll-behavior: smooth;  
+        }
+
+        .main-content-section {
+            padding: 60px 5%;
+            background-color: #ffffff; 
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .main-content-section h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #2c3e50;  
+            margin-bottom: 40px;
+            border-bottom: 2px solid #ffc107; 
+            display: block;
+            padding-bottom: 10px;
+            max-width: 600px;
+            margin: 0 auto 40px auto;  
+        }
+
+        .content-paragraph {
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            padding: 20px;
+            border-left: 5px solid #ffc107;  
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);  
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+            
+            display: flow-root;  
+        } 
+
+        .content-paragraph.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-paragraph h3 {
+            color: #007bff;  
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .content-paragraph p {
+            line-height: 1.6;  
+            font-size: 16px;
+            color: #555;
+        }
+
+        .about-section {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            color: #ffc107;
+            margin-bottom: 30px;
+            border-bottom: none;
+        }
+
+        .about-section p {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .team-info {
+            margin-top: 30px;
+            font-style: italic;
+            color: #bdc3c7;
+        }
+
+        @media (max-width: 768px) {
+            .navbar nav ul {
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                display: none; 
+            }
+            
+            .content h1 {
+                font-size: 36px;
+            }
+            
+            .content p {
+                font-size: 18px;
+            }
+            
+            .main-content-section {
+                padding: 40px 3%;
+            }
+        }
+    </style>
 </head>
 <body>
-
-        <div class="container">
+    <div class="container">
         <header class="navbar">
-            
-            <div class="logo">Sağlık ve Spor Sitemize Hoş Geldiniz</div>
-            
-               <nav>
+            <div class="logo">Sağlık ve Spor Yaşam Sitesi</div>
+            <nav>
                 <ul>
-                    <li><a href="index.html">Anasayfa</a></li>
-                    <li><a href="#">Hakkımızda</a></li>
-                    <li><a href="#">Beslenme ve Diyet Planları</a></li>
-                    <li><a href="#">Haftalık Plan</a></li>
-                    <li><a href="#">Egzersiz Önerileri</a></li>
-                    <li><a href="login.html">Giriş Yap</a></li> 
-                    <li><a href="register.html">Kaydol</a></li> 
+                    <li><a href="#temeller">Temeller</a></li>
+                    <li><a href="#beslenme">Beslenme</a></li>
+                    <li><a href="#plan">Haftalık Plan</a></li>
+                    <li><a href="#egzersiz">Egzersiz</a></li>
+                    <li><a href="#dinlenme">Dinlenme</a></li>
+                    <li><a href="#hakkimizda">Hakkımızda</a></li>
                 </ul>
-            </nav>
             </nav>
         </header>
 
-           <div class="content">
-           <h1>Sağlık Ve Spor Yaşamınız Burada Başlıyor!</h1>
-           <p>Hemen Kaydolun ve Sağlıklı Yaşama Adım Atın.</p>
-           
-           <a href="#kayit-formu" class="button-link">Hemen Başla</a> 
-           
+        <div class="content">
+            <h1>Sağlık Ve Spor Yaşamınız Burada Başlıyor!</h1>
+            <p>Sağlıklı Yaşam ve Egzersiz Planlarını Keşfedin.</p>
+            <a href="#temeller" class="button-link">Başlayalım</a>
         </div>
     </div>
 
-    <div class="form-container">
-        <h2>Giriş Yap</h2>
-        <form action="#" method="POST">
-            <div class="input-group">
-                <label for="login-email">E-posta</label>
-                <input type="email" id="login-email" name="email" required>
-            </div>
-            
-            <div class="input-group">
-                <label for="login-password">Şifre</label>
-                <input type="password" id="login-password" name="password" required>
-            </div>
-            
-            <button type="submit" class="submit-button">Giriş Yap</button>
-            
-            <p class="switch-form">Hesabın yok mu? <a href="register.html">Hemen Kaydol</a></p>
+    <section class="main-content-section" id="temeller">
+        <h2>Sağlıklı Yaşamın Temelleri</h2>
+        
+        <div class="content-paragraph" id="beslenme">
+            <h3>Beslenme ve Diyet Planları</h3>
+            <p>Dengeli bir diyet, vücudun enerji ve yapısal ihtiyaçlarını karşılayan makro (protein, karbonhidrat, yağ) ve mikro besinlerin (vitamin, mineral) doğru oranını içerir. Kaliteli protein ve kompleks karbonhidratları tercih edin. Bol su tüketimi, metabolik süreçler için hayati öneme sahiptir. En iyi plan, kişiselleştirilmiş ve sürdürülebilir olandır.</p>
+        </div>
 
-        <h2>Kaydol</h2>
-        <form action="#" method="POST">
-            <div class="input-group">
-                <label for="reg-name">Ad Soyad</label>
-                <input type="text" id="reg-name" name="name" required>
-            </div>
-            
-            <div class="input-group">
-                <label for="reg-email">E-posta</label>
-                <input type="email" id="reg-email" name="email" required>
-            </div>
-            
-            <div class="input-group">
-                <label for="reg-password">Şifre</label>
-                <input type="password" id="reg-password" name="password" required>
-            </div>
-            
-            <div class="input-group">
-                <label for="reg-password-repeat">Şifre Tekrarı</label>
-                <input type="password" id="reg-password-repeat" name="password_repeat" required>
-            </div>
-            
-            <button type="submit" class="submit-button">Hesap Oluştur</button>
-            
-            <p class="switch-form">Zaten bir hesabın var mı? <a href="login.html">Giriş Yap</a></p>
-        </form>
-    </div>
+        <div class="content-paragraph">
+            <h3>Dengeli Beslenme</h3>
+            <p>Her ana öğünde tabağınızın yarısını sebze/meyve kaplamasına dikkat edin. İşlenmiş gıdalardan ve ilave şekerden uzak durmak genel sağlık için kritiktir. Sağlıklı yağ kaynaklarını (zeytinyağı, avokado) ihmal etmeyin. Yeterli protein, özellikle antrenman sonrası kas onarımı için gereklidir.</p>
+        </div>
+
+        <div class="content-paragraph" id="plan">
+            <h3>Haftalık Plan</h3>
+            <p>Haftalık planda kuvvet antrenmanları (Pazartesi/Perşembe) ile kardiyo seanslarını (Salı/Cuma) dengeleyin. Çarşamba Aktif Dinlenme (Yoga, Pilates), Pazar ise Tam Dinlenme günü olmalıdır. Dinlenme günleri, kas onarımı ve sakatlanmaları önlemek için kritik öneme sahiptir. Haftada 3-5 gün egzersiz yapmaya odaklanın.</p>
+        </div>
+
+        <div class="content-paragraph" id="egzersiz">
+            <h3>Sporun Fiziksel Faydaları ve Egzersiz Önerileri</h3>
+            <p>Düzenli fiziksel aktivite, kalp sağlığını güçlendirir ve kronik hastalık riskini azaltır. Haftalık rutininize bileşik hareketler (squat, şınav) içeren kuvvet antrenmanlarını dahil etmek, en kapsamlı faydayı sağlayacaktır. Yüksek Yoğunluklu Kardiyo (HIIT), kısa ve yoğun patlamalarla hızlı sonuç verir.</p>
+        </div>
+
+        <div class="content-paragraph" id="dinlenme">
+            <h3>Zihinsel Esenlik ve Dinlenme</h3>
+            <p>Sağlıklı bir yaşam sadece fiziksel değildir. Düzenli uyku ve aktif dinlenme (yoga, hafif yürüyüş) zihinsel esenlik için önemlidir. Yeterli dinlenme, fiziksel performansı artırır ve genel yaşam kalitenizi yükseltir. Dinlenme günleri, kas onarımı için kritik öneme sahiptir.</p>
+        </div>
+    </section>
+
+    <section class="about-section" id="hakkimizda">
+        <h2>Hakkımızda: Proje Ekibi</h2>
+        <p>Bu web sitesi, sağlıklı yaşamı ve sporun faydalarını sunmak amacıyla hazırlanmıştır. Amacımız, karmaşık bilgileri anlaşılır planlar halinde sunarak kullanıcıları hedeflerine ulaştırmaktır.</p>
+        <div class="team-info">
+            <p>H5250032 Muhammed Enes Çoban ve H5250075 Muhammet Enes Akman tarafından hazırlanmıştır.</p>
+        </div>
+    </section>
 
     <script>
-    const modal = document.getElementById('authModal');
-    const btn = document.querySelector('.button-link');
-    const span = document.getElementsByClassName('close-button')[0];
-
-
-    const loginForm = document.getElementById('loginForm');
-    const registerForm = document.getElementById('registerForm');
-    
-
-    btn.onclick = function(e) {
-        e.preventDefault(); 
-        modal.style.display = 'flex';
-        switchForm('login'); 
-    }
-
-    span.onclick = function() {
-        modal.style.display = 'none';
-    }
-
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
-    
-    function switchForm(formType) {
-        if (formType === 'login') {
-            loginForm.classList.add('active');
-            loginForm.classList.remove('hidden');
-            registerForm.classList.add('hidden');
-            registerForm.classList.remove('active');
-        } else if (formType === 'register') {
-            registerForm.classList.add('active');
-            registerForm.classList.remove('hidden');
-            loginForm.classList.add('hidden');
-            loginForm.classList.remove('active');
-        }
-    }
-</script>
-
+        window.addEventListener('scroll', function() {
+            const paragraphs = document.querySelectorAll('.content-paragraph');
+            
+            paragraphs.forEach(function(paragraph) {
+                const rect = paragraph.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                if (rect.top < windowHeight * 0.8) {
+                    paragraph.classList.add('animate');
+                }
+            });
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.dispatchEvent(new Event('scroll'));
+            }, 100);
+        });
+    </script>
 </body>
 </html>
