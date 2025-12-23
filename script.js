@@ -1,4 +1,3 @@
-// --- GLOBAL DEĞİŞKENLER VE DURUM YÖNETİMİ ---
 let glasses = 0;
 const totalGoal = 10;
 let userData = {
@@ -7,15 +6,12 @@ let userData = {
     water: 0
 };
 
-// --- SAYFA YÖNETİMİ (SPA) ---
 function showPage(pageId) {
-    // Tüm sayfaları gizle
     document.querySelectorAll('.page-section').forEach(section => {
         section.classList.add('hidden');
         section.style.opacity = "0";
     });
     
-    // Seçilen sayfayı göster
     const selectedPage = document.getElementById('page-' + pageId);
     if (selectedPage) {
         selectedPage.classList.remove('hidden');
@@ -26,7 +22,6 @@ function showPage(pageId) {
     }
 }
 
-// --- DASHBOARD GÜNCELLEME ---
 function updateDashboard() {
     const dashBmi = document.getElementById('dash-bmi-val');
     const dashCal = document.getElementById('dash-cal-val');
@@ -37,7 +32,6 @@ function updateDashboard() {
     if (dashWater) dashWater.innerText = glasses + " / " + totalGoal;
 }
 
-// --- BMI HESAPLAYICI ---
 function calculateBMI() {
     const weight = parseFloat(document.getElementById('bmi_weight').value);
     const height = parseFloat(document.getElementById('bmi_height').value) / 100;
@@ -62,7 +56,6 @@ function calculateBMI() {
     }
 }
 
-// --- KALORİ HESAPLAYICI ---
 function calculateCalories() {
     const age = parseInt(document.getElementById('cal_age').value);
     const gender = document.getElementById('cal_gender').value;
@@ -87,7 +80,6 @@ function calculateCalories() {
     }
 }
 
-// --- SU TAKİBİ ---
 function addGlass() {
     if (glasses < totalGoal) {
         glasses++;
@@ -110,7 +102,6 @@ function updateWaterUI() {
     if (glasses === totalGoal) alert("Günlük su hedefine ulaştınız! 💧");
 }
 
-// --- YAĞ ORANI ---
 const fatGenderSelect = document.getElementById('fat_gender');
 if (fatGenderSelect) {
     fatGenderSelect.addEventListener('change', function() {
@@ -142,7 +133,6 @@ function calculateFat() {
     if (fatPct) fatPct.innerText = "%" + fat.toFixed(1);
 }
 
-// --- MODAL VE GİRİŞ SİSTEMİ ---
 function toggleModal(type = 'login') {
     const modal = document.getElementById('authModal');
     if (!modal) return;
@@ -193,21 +183,18 @@ function logout() {
     location.reload();
 }
 
-// Modal dışına tıklandığında kapatma
 window.onclick = function(event) {
     const modal = document.getElementById('authModal');
     if (event.target === modal) toggleModal();
 }
 
 function showPage(pageId) {
-    // Tüm sayfa bölümlerini gizle
     document.querySelectorAll('.page-section').forEach(section => {
         section.classList.add('hidden');
         section.style.opacity = "0";
     });
     
     if (pageId === 'home') {
-        // Ana sayfadaysak hem Hero hem İçerik göster
         const hero = document.getElementById('page-home');
         const content = document.getElementById('home-content');
         hero.classList.remove('hidden');
@@ -217,7 +204,6 @@ function showPage(pageId) {
             content.style.opacity = "1";
         }, 50);
     } else {
-        // Diğer sayfalar
         const selectedPage = document.getElementById('page-' + pageId);
         if (selectedPage) {
             selectedPage.classList.remove('hidden');
