@@ -3,346 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sağlık ve Spor Yaşam Sitesi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        @keyframes fadeInDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {  
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .container {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start; 
-        }
-
-        header.navbar {
-            width: 100%; 
-            height: 80px;
-            background: rgba(0, 0, 0, 0.7); 
-            display: flex;
-            align-items: center; 
-            justify-content: space-between;             
-            opacity: 0;
-            animation: fadeInDown 0.8s ease-out 0.2s forwards;
-        }
-
-        .navbar .logo {
-            color: #ffffff;
-            font-size: 24px;
-            font-family: 'Poppins', sans-serif;
-            margin-left: 30px; 
-            font-weight: 700;
-        }
-
-        .navbar nav ul {
-            display: flex;
-            list-style: none;
-            margin-right: 30px; 
-            padding-left: 0;  
-        }
-
-        .navbar nav ul li {
-            margin: 0; 
-        }
-
-        .navbar nav ul li a {
-            display: block;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 16px; 
-            font-weight: 500;
-            padding: 29.5px 18px;  
-            font-family: 'Poppins', sans-serif;
-            transition: color 0.3s;
-        }
-
-        .navbar nav ul li a:hover {
-            color: #ffc107;  
-        }
-
-        .content {
-            width: 100%;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center; 
-            text-align: center;
-            color: #ffffff;
-            padding: 20px;
-        }
-
-        .content h1 {
-            font-size: 56px; 
-            margin-bottom: 20px;
-            font-family: 'Poppins', sans-serif;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); 
-            font-weight: 700;           
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out 0.8s forwards;
-        }
-
-        .content p {
-            font-size: 22px;
-            margin-bottom: 40px;
-            font-family: 'Poppins', sans-serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            font-weight: 400;
-            
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out 1.2s forwards;  
-        }
-
-        .content .button-link { 
-            padding: 14px 30px; 
-            font-size: 19px;
-            border: 2px solid #ffc107;
-            background: transparent;
-            color: #ffffff;
-            cursor: pointer;
-            transition: 0.3s;  
-            text-decoration: none;      
-            display: inline-block;      
-            text-align: center;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out 1.6s forwards;
-        }
-
-        .content .button-link:hover {
-            background: #ffc107;
-            color: #000000;  
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f9;  
-            min-height: 100vh;
-            margin: 0;
-            scroll-behavior: smooth;  
-        }
-
-        .main-content-section {
-            padding: 60px 5%;
-            background-color: #ffffff; 
-            color: #333;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .main-content-section h2 {
-            text-align: center;
-            font-size: 32px;
-            color: #2c3e50;  
-            margin-bottom: 40px;
-            border-bottom: 2px solid #ffc107; 
-            display: block;
-            padding-bottom: 10px;
-            max-width: 600px;
-            margin: 0 auto 40px auto;  
-        }
-
-        .content-paragraph {
-            max-width: 900px;
-            margin: 0 auto 30px auto;
-            padding: 20px;
-            border-left: 5px solid #ffc107;  
-            background-color: #f9f9f9;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);  
-            opacity: 0; 
-            transform: translateY(20px); 
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
-            
-            display: flow-root;  
-        } 
-
-        .content-paragraph.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .content-paragraph h3 {
-            color: #007bff;  
-            font-size: 22px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .content-paragraph p {
-            line-height: 1.6;  
-            font-size: 16px;
-            color: #555;
-        }
-
-        .about-section {
-            background-color: #2c3e50;
-            color: #ffffff;
-            padding: 50px 5%;
-            text-align: center;
-        }
-
-        .about-section h2 {
-            color: #ffc107;
-            margin-bottom: 30px;
-            border-bottom: none;
-        }
-
-        .about-section p {
-            max-width: 800px;
-            margin: 0 auto 20px auto;
-            font-size: 18px;
-            line-height: 1.7;
-        }
-
-        .team-info {
-            margin-top: 30px;
-            font-style: italic;
-            color: #bdc3c7;
-        }
-
-        @media (max-width: 768px) {
-            .navbar nav ul {
-                flex-direction: column;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.9);
-                display: none; 
-            }
-            
-            .content h1 {
-                font-size: 36px;
-            }
-            
-            .content p {
-                font-size: 18px;
-            }
-            
-            .main-content-section {
-                padding: 40px 3%;
-            }
-        }
-    </style>
+    <title>FitLife | Kişisel Sağlık Rehberi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header class="navbar">
-            <div class="logo">Sağlık ve Spor Yaşam Sitesi</div>
-            <nav>
-                <ul>
-                    <li><a href="#temeller">Temeller</a></li>
-                    <li><a href="#beslenme">Beslenme</a></li>
-                    <li><a href="#plan">Haftalık Plan</a></li>
-                    <li><a href="#egzersiz">Egzersiz</a></li>
-                    <li><a href="#dinlenme">Dinlenme</a></li>
-                    <li><a href="#hakkimizda">Hakkımızda</a></li>
-                </ul>
-            </nav>
-        </header>
 
-        <div class="content">
-            <h1>Sağlık Ve Spor Yaşamınız Burada Başlıyor!</h1>
-            <p>Sağlıklı Yaşam ve Egzersiz Planlarını Keşfedin.</p>
-            <a href="#temeller" class="button-link">Başlayalım</a>
+<nav class="navbar">
+    <div class="logo">FIT<span>LIFE</span></div>
+    <ul class="nav-links">
+        <li><a href="#" onclick="showPage('home')">Ana Sayfa</a></li>
+        <li><a href="#" class="nav-dashboard hidden" onclick="showPage('dashboard')">Panelim</a></li>
+        <li><a href="#" onclick="showPage('bmi')">BMI</a></li>
+        <li><a href="#" onclick="showPage('calorie')">Kalori</a></li>
+        <li><a href="#" onclick="showPage('water')">Su</a></li>
+        <li><a href="#" onclick="showPage('fat')">Yağ Oranı</a></li>
+    </ul>
+    <div class="nav-auth">
+        <button class="btn-login" id="nav-login-btn" onclick="toggleModal('login')">Giriş Yap</button>
+        <button class="btn-cta" id="nav-register-btn" onclick="toggleModal('register')">Üye Ol</button>
+        <div id="user-profile" class="hidden">
+            <span id="user-name-display">Merhaba!</span>
+            <button onclick="logout()" class="btn-outline" style="width: auto; padding: 5px 15px; margin: 0 0 0 10px;">Çıkış</button>
         </div>
     </div>
+</nav>
 
-    <section class="main-content-section" id="temeller">
-        <h2>Sağlıklı Yaşamın Temelleri</h2>
-        
-        <div class="content-paragraph" id="beslenme">
-            <h3>Beslenme ve Diyet Planları</h3>
-            <p>Dengeli bir diyet, vücudun enerji ve yapısal ihtiyaçlarını karşılayan makro (protein, karbonhidrat, yağ) ve mikro besinlerin (vitamin, mineral) doğru oranını içerir. Kaliteli protein ve kompleks karbonhidratları tercih edin. Bol su tüketimi, metabolik süreçler için hayati öneme sahiptir. En iyi plan, kişiselleştirilmiş ve sürdürülebilir olandır.</p>
+<header id="page-home" class="page-section hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Veriye Dayalı <span>Gelişim</span>.</h1>
+        <p>Vücudunuzu tanıyın, hedeflerinize bilimsel yöntemlerle ulaşın.</p>
+        <button class="btn-calc" style="width: auto; padding: 15px 40px;" onclick="showPage('bmi')">Başlayalım</button>
+    </div>
+</header>
+
+<main class="container-main">
+    <section id="page-dashboard" class="page-section hidden">
+        <div class="section-header">
+            <h2>Kişisel Gelişim Paneli</h2>
+            <p>Hesapladığınız son veriler ve günlük hedefleriniz.</p>
         </div>
-
-        <div class="content-paragraph">
-            <h3>Dengeli Beslenme</h3>
-            <p>Her ana öğünde tabağınızın yarısını sebze/meyve kaplamasına dikkat edin. İşlenmiş gıdalardan ve ilave şekerden uzak durmak genel sağlık için kritiktir. Sağlıklı yağ kaynaklarını (zeytinyağı, avokado) ihmal etmeyin. Yeterli protein, özellikle antrenman sonrası kas onarımı için gereklidir.</p>
-        </div>
-
-        <div class="content-paragraph" id="plan">
-            <h3>Haftalık Plan</h3>
-            <p>Haftalık planda kuvvet antrenmanları (Pazartesi/Perşembe) ile kardiyo seanslarını (Salı/Cuma) dengeleyin. Çarşamba Aktif Dinlenme (Yoga, Pilates), Pazar ise Tam Dinlenme günü olmalıdır. Dinlenme günleri, kas onarımı ve sakatlanmaları önlemek için kritik öneme sahiptir. Haftada 3-5 gün egzersiz yapmaya odaklanın.</p>
-        </div>
-
-        <div class="content-paragraph" id="egzersiz">
-            <h3>Sporun Fiziksel Faydaları ve Egzersiz Önerileri</h3>
-            <p>Düzenli fiziksel aktivite, kalp sağlığını güçlendirir ve kronik hastalık riskini azaltır. Haftalık rutininize bileşik hareketler (squat, şınav) içeren kuvvet antrenmanlarını dahil etmek, en kapsamlı faydayı sağlayacaktır. Yüksek Yoğunluklu Kardiyo (HIIT), kısa ve yoğun patlamalarla hızlı sonuç verir.</p>
-        </div>
-
-        <div class="content-paragraph" id="dinlenme">
-            <h3>Zihinsel Esenlik ve Dinlenme</h3>
-            <p>Sağlıklı bir yaşam sadece fiziksel değildir. Düzenli uyku ve aktif dinlenme (yoga, hafif yürüyüş) zihinsel esenlik için önemlidir. Yeterli dinlenme, fiziksel performansı artırır ve genel yaşam kalitenizi yükseltir. Dinlenme günleri, kas onarımı için kritik öneme sahiptir.</p>
+        <div class="dashboard-grid">
+            <div class="dash-card"><h3>Son BMI</h3><div id="dash-bmi-val">--</div></div>
+            <div class="dash-card"><h3>Günlük Kalori</h3><div id="dash-cal-val">-- kcal</div></div>
+            <div class="dash-card"><h3>Su Tüketimi</h3><div id="dash-water-val">0 / 10</div></div>
         </div>
     </section>
 
-    <section class="about-section" id="hakkimizda">
-        <h2>Hakkımızda: Proje Ekibi</h2>
-        <p>Bu web sitesi, sağlıklı yaşamı ve sporun faydalarını sunmak amacıyla hazırlanmıştır. Amacımız, karmaşık bilgileri anlaşılır planlar halinde sunarak kullanıcıları hedeflerine ulaştırmaktır.</p>
-        <div class="team-info">
-            <p>H5250032 Muhammed Enes Çoban ve H5250075 Muhammet Enes Akman tarafından hazırlanmıştır.</p>
+    <section id="page-bmi" class="page-section hidden">
+        <div class="card-section">
+            <div class="section-header"><h2>BMI Hesaplayıcı</h2><p>Vücut kitle indeksinizi öğrenin.</p></div>
+            <div class="calculator-grid">
+                <div class="input-field"><label>Kilo (kg)</label><input type="number" id="bmi_weight" placeholder="75"></div>
+                <div class="input-field"><label>Boy (cm)</label><input type="number" id="bmi_height" placeholder="180"></div>
+                <button onclick="calculateBMI()" class="btn-calc">Hesapla</button>
+                <div id="bmi-result" class="result-display">Değerleri giriniz.</div>
+            </div>
         </div>
     </section>
 
-    <script>
-        window.addEventListener('scroll', function() {
-            const paragraphs = document.querySelectorAll('.content-paragraph');
-            
-            paragraphs.forEach(function(paragraph) {
-                const rect = paragraph.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                
-                if (rect.top < windowHeight * 0.8) {
-                    paragraph.classList.add('animate');
-                }
-            });
-        });
-        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                window.dispatchEvent(new Event('scroll'));
-            }, 100);
-        });
-    </script>
+    <section id="page-calorie" class="page-section hidden">
+        <div class="card-section">
+            <div class="section-header"><h2>Günlük Kalori İhtiyacı</h2><p>Metabolizma hızınızı belirleyin.</p></div>
+            <div class="form-grid">
+                <div class="input-field"><label>Yaş</label><input type="number" id="cal_age" placeholder="25"></div>
+                <div class="input-field"><label>Cinsiyet</label><select id="cal_gender"><option value="male">Erkek</option><option value="female">Kadın</option></select></div>
+                <div class="input-field"><label>Kilo (kg)</label><input type="number" id="cal_weight" placeholder="70"></div>
+                <div class="input-field"><label>Boy (cm)</label><input type="number" id="cal_height" placeholder="175"></div>
+                <div class="input-field full-width"><label>Aktivite Düzeyi</label>
+                    <select id="cal_activity">
+                        <option value="1.2">Hareketsiz</option>
+                        <option value="1.375">Hafif Hareketli</option>
+                        <option value="1.55">Orta Hareketli</option>
+                        <option value="1.725">Çok Hareketli</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="calculateCalories()" class="btn-calc">Hesapla</button>
+            <div id="cal-result" class="result-display" style="display:none;"></div>
+        </div>
+    </section>
+
+    <section id="page-water" class="page-section hidden">
+        <div class="card-section">
+            <div class="section-header"><h2>Günlük Su Takibi</h2><p>Hedef: 2.5 Litre (10 Bardak)</p></div>
+            <div class="water-container">
+                <div class="glass-visual"><div class="water-fill" id="waterFill"></div></div>
+                <div class="water-info">
+                    <div class="counter"><span id="glassCount">0</span>/10</div>
+                    <button onclick="addGlass()" class="btn-add">+ Ekle</button>
+                    <button onclick="resetWater()" class="btn-outline">Sıfırla</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="page-fat" class="page-section hidden">
+        <div class="card-section">
+            <div class="section-header"><h2>Vücut Yağ Oranı</h2><p>Askeri yöntemle hassas ölçüm.</p></div>
+            <div class="form-grid">
+                <div class="input-field"><label>Cinsiyet</label><select id="fat_gender"><option value="male">Erkek</option><option value="female">Kadın</option></select></div>
+                <div class="input-field"><label>Boy (cm)</label><input type="number" id="fat_height" placeholder="180"></div>
+                <div class="input-field"><label>Bel (cm)</label><input type="number" id="fat_waist" placeholder="85"></div>
+                <div class="input-field"><label>Boyun (cm)</label><input type="number" id="fat_neck" placeholder="40"></div>
+                <div id="fat-hip-group" class="input-field" style="display: none;"><label>Kalça (cm)</label><input type="number" id="fat_hip" placeholder="95"></div>
+            </div>
+            <button onclick="calculateFat()" class="btn-calc">Hesapla</button>
+            <div id="fat-result-area" class="fat-result" style="display: none;">Yağ Oranı: <span id="fat-percentage">0%</span></div>
+        </div>
+    </section>
+</main>
+
+<div id="authModal" class="modal-overlay">
+    <div class="modal-card">
+        <button class="modal-close" onclick="toggleModal()">&times;</button>
+        <div class="modal-tabs">
+            <button id="tab-login" class="active" onclick="switchAuth('login')">Giriş Yap</button>
+            <button id="tab-register" onclick="switchAuth('register')">Üye Ol</button>
+        </div>
+        <form id="authForm" class="auth-content">
+            <h2 id="authTitle">Tekrar Hoşgeldin!</h2>
+            <div id="register-only" class="hidden"><div class="input-field"><label>Ad Soyad</label><input type="text" placeholder="Adınız Soyadınız"></div></div>
+            <div class="input-field"><label>E-posta</label><input type="email" placeholder="ornek@mail.com" required></div>
+            <div class="input-field"><label>Şifre</label><input type="password" placeholder="••••••••" required></div>
+            <button type="submit" class="btn-calc main-auth-btn">Devam Et</button>
+        </form>
+    </div>
+</div>
+<div id="home-content" class="page-section">
+    <section class="info-grid container-main">
+        <div class="info-card">
+            <div class="info-icon">🥗</div>
+            <h3>Makro Beslenme</h3>
+            <p>Protein, karbonhidrat ve yağ dengesi, vücut kompozisyonunuzu değiştiren temel unsurdur. Hedefinize göre kalori dağılımınızı optimize edin.</p>
+        </div>
+        <div class="info-card">
+            <div class="info-icon">⚡</div>
+            <h3>Bazal Metabolizma (BMR)</h3>
+            <p>Vücudunuz hiçbir şey yapmasa bile harcadığı enerjiyi ifade eder. Bu veriyi bilmek, kilo kontrolünün matematiksel temelidir.</p>
+        </div>
+        <div class="info-card">
+            <div class="info-icon">💤</div>
+            <h3>Toparlanma (Recovery)</h3>
+            <p>Kaslar spor salonunda değil, uykuda gelişir. Günde en az 7-8 saat kaliteli uyku, antrenman performansınızın %50'sini oluşturur.</p>
+        </div>
+    </section>
+
+    <section class="guide-section container-main">
+        <div class="card-section">
+            <div class="section-header">
+                <h2>Sağlıklı Yaşamın 3 Altın Kuralı</h2>
+            </div>
+            <div class="guide-content">
+                <div class="guide-item">
+                    <h4>1. İstikrar Her Şeydir</h4>
+                    <p>Haftada 5 gün çok ağır antrenman yapıp sonraki 2 hafta bırakmak yerine, haftada 3 gün düzenli egzersiz yapmak uzun vadede çok daha büyük sonuçlar verir.</p>
+                </div>
+                <div class="guide-item">
+                    <h4>2. Hidrasyon ve Odak</h4>
+                    <p>Yeterli su tüketimi (günde ortalama 2.5-3 litre), eklemleri yağlar, cildi tazeler ve beyin fonksiyonlarını hızlandırır. Susuz bir vücut, yağ yakımını yavaşlatır.</p>
+                </div>
+                <div class="guide-item">
+                    <h4>3. Gerçekçi Hedefler</h4>
+                    <p>BMI veya Yağ Oranı hesaplamalarınızı yaparken, kendinizi başkalarıyla değil, dünkü halinizle kıyaslayın. Sağlık bir varış noktası değil, bir yolculuktur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="water-info">
+    <div class="counter"><span id="glassCount">0</span>/10</div>
+    <div class="water-button-group" style="display: flex; flex-direction: column; gap: 10px; width: 150px; margin: 0 auto;">
+        <button onclick="addGlass()" class="btn-add">+ Ekle</button>
+        <button onclick="resetWater()" class="btn-outline">Sıfırla</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
